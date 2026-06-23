@@ -1,0 +1,30 @@
+# ===========================================
+# EduBot — Git Ignore (deploy ke liye zaroori)
+# ===========================================
+
+# Dependencies (Vercel/Railway khud install karte hain)
+node_modules/
+server/node_modules/
+
+# Environment files (SECRET keys — kabhi GitHub par na jayein!)
+.env
+.env.local
+.env.production
+server/.env
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / Editor
+.DS_Store
+.vscode/
+*.swp
+
+# Misc
+.cache/
+.temp/
