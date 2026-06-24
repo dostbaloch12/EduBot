@@ -20,6 +20,7 @@ import LeaderboardModal from "./components/LeaderboardModal";
 import HelpModal from "./components/HelpModal";
 import LegalModal from "./components/LegalModal";
 import CookieConsent from "./components/CookieConsent";
+import BackToTop from "./components/BackToTop";
 import CourseModal from "./components/CourseModal";
 import PastPapersModal from "./components/PastPapersModal";
 import type { Course } from "./courses";
@@ -1010,6 +1011,7 @@ export default function App() {
         />
       )}
       {pastPapersOpen && <PastPapersModal onClose={() => setPastPapersOpen(false)} onDone={(m) => notify(m)} />}
+      <BackToTop />
       {toast && <Toast message={toast} />}
     </div>
   );

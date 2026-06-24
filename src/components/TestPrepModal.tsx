@@ -53,12 +53,18 @@ export default function TestPrepModal({ prep, onClose, onDone }: TestPrepModalPr
       <div className="glass-strong border-gradient animate-scale-in relative w-full max-w-4xl overflow-hidden rounded-[2.5rem] p-6 sm:p-10 shadow-2xl">
         <button
           onClick={onClose}
-          className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          className="absolute left-6 top-6 z-10 flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+        >
+          ← Back
+        </button>
+        <button
+          onClick={onClose}
+          className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
         >
           ✕
         </button>
 
-        <div className="flex flex-wrap items-center gap-4 border-b border-white/10 pb-6">
+        <div className="mt-12 flex flex-wrap items-center gap-4 border-b border-white/10 pb-6">
           <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br ${prep.color} text-4xl shadow-xl`}>
             {prep.icon}
           </div>

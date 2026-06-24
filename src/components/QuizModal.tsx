@@ -134,11 +134,18 @@ export default function QuizModal({ userId, chapterCtx, onClose, onDone }: QuizM
       <div className="glass-strong border-gradient animate-scale-in relative w-full max-w-2xl overflow-hidden rounded-[2.5rem] p-6 sm:p-8 shadow-2xl">
         <button
           onClick={onClose}
-          className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          className="absolute left-6 top-6 z-10 flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+        >
+          ← Back
+        </button>
+        <button
+          onClick={onClose}
+          className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
         >
           ✕
         </button>
 
+        <div className="mt-12">
         {aiLoading ? (
           <div className="flex flex-col items-center justify-center py-16 text-center">
             <div className="animate-float text-5xl">🤖</div>
@@ -294,6 +301,7 @@ export default function QuizModal({ userId, chapterCtx, onClose, onDone }: QuizM
             </div>
           </div>
         )}
+        </div>
       </div>
     </div>
   );
