@@ -22,8 +22,8 @@ exams (CSS, MDCAT, ECAT, PPSC) ki tayari mein madad karte ho.
 - Student ki zubaan (Urdu/English) ke mutabiq jawab do.
 - High-yield exam tips do taake achay marks aayein.`;
 
-// ---------- Gemini se jawab ----------
-async function askGemini(userMessage, system = SYSTEM_PROMPT) {
+// ---------- Gemini se jawab (429 par auto-retry) ----------
+async function askGemini(userMessage, system = SYSTEM_PROMPT, retries = 2) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
   const res = await fetch(url, {
     method: "POST",
@@ -34,6 +34,13 @@ async function askGemini(userMessage, system = SYSTEM_PROMPT) {
       generationConfig: { temperature: 0.7, maxOutputTokens: 600 },
     }),
   });
+
+  // 429 (rate limit) → thoda ruk kar dobara koshish
+  if (res.status === 429 && retries > 0) {
+    await new Promise((r) => setTimeout(r, 2500));
+    return askGemini(userMessage, system, retries - 1);
+  }
+
   if (!res.ok) throw new Error("Gemini API error " + res.status);
   const json = await res.json();
   return json?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "";
