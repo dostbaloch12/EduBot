@@ -110,23 +110,25 @@ export default function QAPractice({ chapterCtx, onClose, onDone }: QAPracticePr
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#07061d]/85 p-4 backdrop-blur-xl">
-      <div className="glass-strong border-gradient animate-scale-in relative w-full max-w-3xl overflow-hidden rounded-[2.5rem] p-6 sm:p-10 shadow-2xl">
-        {/* Back button (dashboard par wapas) */}
-        <button
-          onClick={() => { voice.stop(); voiceInput.stop(); onClose(); }}
-          className="absolute left-6 top-6 flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
-        >
-          ← Back
-        </button>
-        <button
-          onClick={onClose}
-          className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
-        >
-          ✕
-        </button>
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[#07061d]/85 p-4 backdrop-blur-xl">
+      <div className="glass-strong border-gradient animate-scale-in relative my-8 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2.5rem] p-6 sm:p-10 shadow-2xl">
+        {/* ===== Top Bar: Back (left) + Close (right) ===== */}
+        <div className="mb-5 flex items-center justify-between">
+          <button
+            onClick={() => { voice.stop(); voiceInput.stop(); onClose(); }}
+            className="flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+          >
+            ← Back
+          </button>
+          <button
+            onClick={onClose}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          >
+            ✕
+          </button>
+        </div>
 
-        <div className="mt-10 flex items-center gap-3 border-b border-white/10 pb-4">
+        <div className="flex items-center gap-3 border-b border-white/10 pb-4">
           <span className="h-8 w-1 rounded-full bg-gradient-to-b from-violet-400 to-fuchsia-500" />
           <h3 className="font-display text-2xl font-bold text-white">{t("qaPractice")}</h3>
           {/* Auto voice toggle */}

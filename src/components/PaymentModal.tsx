@@ -31,8 +31,8 @@ export default function PaymentModal({ userId, initialPlan, onClose, onDone }: P
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#07061d]/85 p-4 backdrop-blur-xl">
-      <div className="glass-strong border-gradient animate-scale-in relative w-full max-w-lg overflow-hidden rounded-[2.5rem] p-6 sm:p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[#07061d]/85 p-4 backdrop-blur-xl">
+      <div className="glass-strong border-gradient animate-scale-in relative my-8 max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[2.5rem] p-6 sm:p-8 shadow-2xl">
         <button
           onClick={onClose}
           className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
