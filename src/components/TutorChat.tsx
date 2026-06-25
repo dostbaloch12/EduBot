@@ -70,12 +70,22 @@ export default function TutorChat({ userId, onQuotaChange }: TutorChatProps) {
     await onQuotaChange();
 
     if (!res.ok) {
+      const err = (res.error || "").toLowerCase();
+      let msg: string;
+      if (err.includes("authoriz") || err.includes("token") || err.includes("not found")) {
+        // Token galat/purana → dobara login ka mashwara
+        msg = "⚠️ Aap ka session expire ho gaya. Baraye meharbani LOGOUT karke dobara LOGIN/SIGN UP karें — phir AI Tutor kaam karega!";
+      } else if (err.includes("limit") || err.includes("quota") || err.includes("upgrade")) {
+        msg = `⚠️ ${res.error} Upgrade to Basic ya Premium for unlimited AI answers!`;
+      } else {
+        msg = `⚠️ ${res.error || "Kuch masla aaya."} Dobara koshish karें.`;
+      }
       setMessages((prev) => [
         ...prev,
         {
           id: `m_ai_${Date.now()}`,
           sender: "ai",
-          text: `⚠️ ${res.error || "Daily quota limit reached."} Please upgrade to Basic or Premium in the banner above for unlimited AI answers!`,
+          text: msg,
           timestamp: new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })
         }
       ]);

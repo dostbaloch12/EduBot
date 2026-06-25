@@ -53,7 +53,8 @@ async function tryRealBackend<T>(
 
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 3000); // 3s timeout
+    // AI jawab mein 5-10s lag sakte hain → 30s timeout
+    const timeout = setTimeout(() => controller.abort(), 30000);
     const res = await fetch(`${API_URL}${endpoint}`, {
       method,
       headers,
