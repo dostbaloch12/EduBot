@@ -9,19 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet" />
 
-    <!-- ===== SEO Basics ===== -->
-    <title>EduBot | Pakistan's #1 AI Study Buddy — Board & Entry Test Prep</title>
-    <meta name="description" content="EduBot Pakistan's premier AI study platform. FBISE, Punjab, Sindh, KPK, Balochistan boards + CSS, MDCAT, ECAT, PPSC prep. AI tutor, quizzes, past papers, voice learning in Urdu, Punjabi, Sindhi, Pashto & Balochi." />
-    <meta name="keywords" content="EduBot, Pakistan education, AI tutor, MDCAT, ECAT, CSS prep, PPSC, FBISE, board exams, online study, matric, intermediate, FSc, ICS" />
+    <!-- ===== Favicon ===== -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%95%8C%3C/text%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%95%8C%3C/text%3E%3C/svg%3E" />
+
+    <!-- ===== SEO Basics (title 50-60 chars, description 140-160) ===== -->
+    <title>EduBot | AI Study App for Pakistani Students</title>
+    <meta name="description" content="EduBot — Pakistan's AI study app. Board & entry test prep (CSS, MDCAT, ECAT, PPSC), AI tutor, quizzes & past papers in 6 languages." />
+    <meta name="keywords" content="EduBot, Pakistan education, AI tutor, MDCAT, ECAT, CSS prep, PPSC, FBISE, board exams, online study, matric, FSc" />
     <meta name="author" content="EduBot Pakistan" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://edubot.pk/" />
+    <link rel="canonical" href="https://edu-bot-pi.vercel.app/" />
 
     <!-- ===== Open Graph (Facebook / WhatsApp share) ===== -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="EduBot | Pakistan's #1 AI Study Buddy" />
     <meta property="og:description" content="AI tutor, quizzes & test prep for Pakistani students. CSS, MDCAT, ECAT, PPSC & all boards. 6 languages." />
-    <meta property="og:url" content="https://edubot.pk/" />
+    <meta property="og:url" content="https://edu-bot-pi.vercel.app/" />
     <meta property="og:site_name" content="EduBot" />
     <meta property="og:locale" content="en_PK" />
 
@@ -47,7 +51,16 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- SEO content (search engines ke liye — React load hone par yeh replace ho jata hai) -->
+    <div id="root">
+      <h1>EduBot — Pakistan's AI Study App for Board & Entry Test Prep</h1>
+      <p>
+        EduBot Pakistan ka behtareen AI study platform hai. FBISE, Punjab, Sindh, KPK aur
+        Balochistan boards ke saath CSS, MDCAT, ECAT aur PPSC ki tayari. AI tutor, chapter-wise
+        quizzes, descriptive Q&A practice, past papers, aur voice learning — 6 zubanon mein
+        (English, Urdu, Punjabi, Sindhi, Pashto, Balochi). Loading EduBot...
+      </p>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
