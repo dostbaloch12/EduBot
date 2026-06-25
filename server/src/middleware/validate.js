@@ -20,8 +20,10 @@ export const validateSignup = (req, res, next) => {
   if (!isCleanString(password) || password.length < 6 || password.length > 100) {
     return res.status(400).json({ success: false, error: "Password kam az kam 6 characters" });
   }
-  if (!isCleanString(phone) || !validator.isMobilePhone(phone.replace(/\s/g, ""), "any")) {
-    return res.status(400).json({ success: false, error: "Sahi phone number daalें" });
+  // Phone: 10-15 digits (Pakistani/koi bhi format chalega)
+  const cleanPhone = (phone || "").replace(/[\s\-()+]/g, "");
+  if (!isCleanString(phone) || !/^\d{10,15}$/.test(cleanPhone)) {
+    return res.status(400).json({ success: false, error: "Sahi phone number daalें (10-15 digits)" });
   }
 
   // Sanitize: extra whitespace hatao
